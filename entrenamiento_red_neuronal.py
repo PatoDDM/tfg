@@ -28,7 +28,6 @@ model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy']
 # Entrenar el modelo con datos de entrenamiento y evaluar en datos de validación
 history = model.fit(X_train, y_train, epochs=10, batch_size=32, validation_data=(X_val, y_val))
 
-# Guardar el modelo entrenado como un archivo .keras
 save_model(model, 'modelo_red_neuronal.keras')
 
 # Visualizar el rendimiento del modelo en los datos de entrenamiento y validación
@@ -42,8 +41,9 @@ plt.show()
 # Predecir las probabilidades para las clases
 y_pred_proba = model.predict(X_test)
 
-# Convertir las probabilidades en clases usando un umbral de decisión (por ejemplo, 0.5)
+
 y_pred = (y_pred_proba > 0.5).astype(int)
+
 # Calcular métricas de evaluación
 accuracy = accuracy_score(y_test, y_pred)
 precision = precision_score(y_test, y_pred)
