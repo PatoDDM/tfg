@@ -47,7 +47,7 @@ conjunto[numeric_cols.columns] = scaler.fit_transform(numeric_cols)
 
 conjunto.to_csv('C:/Users/drngb/Desktop/tfg/prueba/prueba.csv',index=False)
 
-#AQUI EVALUO LO NECESARIO QUE ES USAR CADA COLUMNA
+#En este apartado se evalua lo necesario de cada columna
 
 X = conjunto.drop(columns=['ataque_normal', 'ataque_attack', 'ip.src', 'ip.dst'])
 y = conjunto['ataque_attack']
