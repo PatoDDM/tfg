@@ -66,8 +66,8 @@ def packet_handler(packet):
         df.drop(columns=['ip.src', 'ip.dst'], inplace=True)
         df = df.astype(float)
 
-        if len(packet_data) >= 1500:
-            df_last_100 = df[-1500:]
+        if len(packet_data) >= 100:
+            df_last_100 = df[-100:]
             y_pred_proba = model.predict(df_last_100)
             proba = np.mean(y_pred_proba)
 
